@@ -10,13 +10,13 @@ int main()
     int i;
     int *factList;
     
-    cout<<"Ingrese el tamaño deseado para la lista de factoriales (maximo 12)."<<endl;
+    cout<<"Ingrese el tamaño deseado para la lista de factoriales (maximo 16)."<<endl;
     cin>>num;
     
     factList = new int[num];
     pointer = factList;
     
-    for (i=0;i<=num;i++)
+    for (i=0;i<num;i++)
     {
      factList[i] = factorial(i);
      cout << factList[i] << endl;
@@ -30,16 +30,18 @@ int factorial(int n)
 {
     int fact = 1;
     
-    if (n=0)
+    if (n!=0)
     {
-        fact = 1;
+        for(int i=0;i<n;i++)
+        {
+            fact = fact * (n-i);
+        }
+        return fact;
     }
+    
     else
     {
-        for(int i=n;i>0;i--)
-        {
-            fact = fact * i;
-        }
+        return 1;
     }
     return fact;
 }
